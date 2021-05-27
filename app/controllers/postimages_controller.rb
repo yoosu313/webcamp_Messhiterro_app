@@ -16,13 +16,13 @@ class PostimagesController < ApplicationController
   
   def show
     @postimage = Postimage.find(params[:id])
+    @post_comment = PostComment.new
   end
   
   def destroy
     @postimage = Postimage.find(params[:id])
     @postimage.destroy
     redirect_to postimages_path
-    
   end
   
   private
