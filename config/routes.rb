@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users
   root 'homes#top'
   resources :postimages, only: [:new, :create, :index, :show, :destroy] do
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
     
     resources :post_comments, only: [:create, :destroy]
   end
+  resources :users, only: [:show, :edit, :update]
 end

@@ -1,13 +1,1 @@
-<% @postimages.each do |postimage| %>
-  <div>
-    <%= link_to postimage_path(postimage.id) do %>
-      <%= attachment_image_tag postimage, :image %>
-    <% end %>
-    <p>投稿ユーザー画像:<%= image_tag('sample-author1.jpg') %></p>
-    <p>ショップ名:<%= postimage.shop_name %></p>
-    <p>説明:<%= postimage.caption %></p>
-    <p>ユーザーネーム:<%= postimage.user.name %></p>
-    <p><%= link_to"#{postimage.post_comments.count}コメント", postimage_path(postimage.id) %></p>
-  </div>
-<% end %>
-<%= paginate @postimages %>
+<%= render 'postimages/list', postimages: @postimages %>
